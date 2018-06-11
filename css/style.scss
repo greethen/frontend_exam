@@ -2,10 +2,28 @@ body{
     margin: 0;
 }
 
-.beer_types{
-    height: 300px;
-}
+// The level of the taps
 .capacity{
     height: 250px;
     width: 100px;
+    background-color: red;
+    //border: 1px solid black;
+    
 }
+
+.level{
+    height: 250px;
+    width: 100px;
+    background-color: greenyellow;
+  
+}
+
+// .taps-wrap{
+//     display: inline-block;
+//     height: 300px;
+//     border: 1px solid black;
+//     width: 800px;
+//     background-color: pink;
+//     display: inline-block;
+
+// }

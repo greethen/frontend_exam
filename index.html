@@ -5,9 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FooBar Dashboard</title>
+    <link rel="stylesheet" href="css/new.css">
 </head>
 <body>
+
+    <h1>FooBar Dashboard</h1>
+
+    <!-- People WAITING in the queue -->
+    <h2>People waiting:</h2>
+    <div class="waiting"></div>
+     
+    <!-- People SERVED now-->
+     <h2>People served now:</h2>
+     <div class="servedNow"></div>
+    
+     <!-- People SERVED today (SUM)-->
+    <h2>Beers served today in total:</h2>
+    <div class="servedToday"></div>
+   
+    <!-- Beer types -->
+    <div class="beer_types"></div>
+    
+    <!-- Beer taps -->
+    <h2>Beer taps</h2>
+    <div class="taps-wrap">
+    <div class="beer_taps"></div>
+    <template class="tapsTemplate">
+        <div class="capacity">
+            <div class="level"></div>
+        </div>
+        
+        <span class="beer_tap_name">Name</span>
+    </template>
+</div>
+
+    <!-- Bartenders working -->
+    <div class="bartenders"></div>
     
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
+
+
+<!-- //npm init
+
+//install node-sass
+//npm install --save-dev node-sass
+
+//add a script to the package.json
+//"my-new-sass": "node-sass myfile.scss output.css -w"
+
+//npm run my-sass -->
