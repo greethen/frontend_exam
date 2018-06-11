@@ -36,18 +36,21 @@ function loadScript(){
 
 //clean the container of capacity
 document.querySelector(".beer_taps").innerHTML="";
+document.querySelector(".bartenders").innerHTML="";
 
 showTaps();
-
+showStorage();
+showBartenders();
 };
+
 //4. getting the taps
 function showTaps(){
-    console.log("taps",myObject.taps)
+    //console.log("taps",myObject.taps)
 
     let taps = myObject.taps;
 
     taps.forEach(tap =>{
-        console.log("tap", tap.level)
+        //console.log("tap", tap.level)
     //define the template
     let tapsTemplate = document.querySelector(".tapsTemplate").content;
   
@@ -60,20 +63,86 @@ function showTaps(){
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
       
-        
         //append clone in the div
         document.querySelector(".beer_taps").appendChild(clone);
-  
+
+        //notify when it is time to change keg 
         if (tap.level<=2450){
             ///alert ("change tap");
             document.querySelector(".level").style.backgroundColor = "blue";
+
+           //----->how to clean so ithers would get invited as well???
         } 
         document.querySelector(".level").innerHTML="";
     }
 )
 
 }
-   
+//5. Showing when the storage is getting empty  ---> To finnish!!!
+function showStorage(){
+    //console.log("storage", myObject.storage)
+
+    let storage = myObject.storage;
+    if (myObject.storage < 5){
+        alert ("need to buy more beer!")
+    }
+}
+
+
+//6. Bartenders name, status and status detail
+function showBartenders(){
+    console.log("bartenders", myObject.bartenders);
+
+    let bartenders = myObject.bartenders;
+
+    bartenders.forEach(bartender =>{
+        //console.log("bartender", bartender.name);
+
+    //define the bartenders template
+    let bartendersTemplate = document.querySelector(".bartendersTemplate").content;
+  
+    //define the bartenders clone 
+    let bartendersClone = bartendersTemplate.cloneNode(true);
+    //getting the names of the bartenders
+    bartendersClone.querySelector(".bartender_name").textContent = `Bartender\´s name: ${bartender.name}`;
+    //bartender´s status t work
+    if (bartender.status == "WORKING"){
+        bartendersClone.querySelector(".bartender_status").textContent = "WORKS!!!!!!";
+        bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "green";
+    }
+    else{
+        bartendersClone.querySelector(".bartender_status").textContent = "IS GETTING READY!!!!!!";
+        bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "orange";
+    }
+
+    //bartender´s precise activity
+    if(bartender.statusDetail == "pourBeer"){
+        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Pours Beer`;
+    }
+    else if (bartender.statusDetail == "startServing") {
+        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Starts Serving`;
+    }
+    else if (bartender.statusDetail == "receivePayment") {
+        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Receives Payment`;
+    }
+    else if (bartender.statusDetail == "releaseTap") {
+        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Releases Tap`;
+    }
+    else if (bartender.statusDetail == "reserveTap") {
+        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Reserves Tap`;
+    }
+    else{
+        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Is waiting`;
+    }
+    
+    //bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: ${bartender.statusDetail}`;
+    //${bartender.statusDetail.split(0.5, " ")}`;
+
+    //append clone in the div .bartenders
+    document.querySelector(".bartenders").appendChild(bartendersClone);
+    })
+    
+}
 
 
 // function showTaps(tap){
