@@ -59,12 +59,16 @@ function showTaps(){
         clone.querySelector(".capacity").style.transform = "rotate(-180deg)";
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
-        
+      
         
         //append clone in the div
         document.querySelector(".beer_taps").appendChild(clone);
-
-        
+  
+        if (tap.level<=2450){
+            ///alert ("change tap");
+            document.querySelector(".level").style.backgroundColor = "blue";
+        } 
+        document.querySelector(".level").innerHTML="";
     }
 )
 
