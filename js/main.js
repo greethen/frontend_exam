@@ -27,28 +27,26 @@ function loadScript(){
             beersServed += customer.order.length;
             lastIdCounted = customer.id;
 
-            // add beers to total beersSold
-            // beersSold = {};
-            // customer.order = [];
-            // order.forEach(beer.name => {
-            //     let sold = beersSold[beername];
-
+            //add beers to total beersSold
+            // let beersSold = {"Githop": 0,
+            // "Elhete": 0, 
+            // "Row26": 0,
+            // "Sleighride": 0}
+            // let order = myObject.serving;
+            // console.log(myObject.beertypes);
+            // order.forEach(beer => {
+                
+            //     let sold = beersSold[myObject.beertypes];
+                
             //     sold++;
-            //     beersSold[beername]=sold
+            //     beersSold[myObject.beertypes]=sold;
             // })
         }
-    
     })
     document.querySelector(".servedToday").textContent = `${beersServed}`;
 
-  
-    
-
 //clean the container of capacity
 //document.querySelector(".beer_taps").innerHTML="";
-
-
-
 
 //call functions
 showTaps();
@@ -78,10 +76,10 @@ function showTaps(){
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
          //notify when it is time to change keg 
-        if (tap.level<=2450){
+        if (tap.level<=200){
             ///alert ("change tap");
             clone.querySelector(".level").style.backgroundColor = "blue";
-            clone.querySelector(".level").textContent = "Soon change keg";
+            clone.querySelector(".level").textContent = "2 liters left. Soon change keg";
             clone.querySelector(".level").style.transform = "rotate(180deg)";
 
         } 
@@ -94,29 +92,21 @@ function showTaps(){
 )
 
 }
+
 //5. Showing when the storage is getting empty  ---> To finnish!!!
 function showStorage(){
     //console.log("storage", myObject.storage)
-    //clean the div 
-    document.querySelector(".storage").innerHTML = "";
 
     let storage = myObject.storage;
     storage.forEach(type => { 
-        console.log(type.name)
-        console.log(type.amount)
+        //console.log(type.name, type.amount)
         if (type.amount<=2){
             //alert ("need to buy beer!")
             document.querySelector(".storage").textContent = `${type.name} beer is finishing soon! Buy more!`;
-            document.querySelector(".storage").textContent = `${type.name} beer is finishing soon! Buy more!`;
+            
         }
     }
 )}
-       
-    // let storage = myObject.storage;
-    // if (myObject.storage < 5){
-    //     alert ("need to buy more beer!")
-    // }
-   
 
 
 //6. Bartenders name, status and status detail
@@ -178,7 +168,7 @@ function showBartenders(){
 
 //7. Beers name, fetures and description
 function showBeers(){
- //   console.log("beers", myObject.beertypes)
+   console.log("beers", myObject.beertypes)
 
     //clean the container of beers
     document.querySelector(".beer_types").innerHTML="";
