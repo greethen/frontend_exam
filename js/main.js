@@ -36,11 +36,16 @@ function loadScript(){
 
 //clean the container of capacity
 document.querySelector(".beer_taps").innerHTML="";
+//clean the container of bartenders
 document.querySelector(".bartenders").innerHTML="";
+//clean the container of beers
+document.querySelector(".beer_types").innerHTML="";
 
+//call functions
 showTaps();
 showStorage();
 showBartenders();
+showBeers();
 };
 
 //4. getting the taps
@@ -91,7 +96,7 @@ function showStorage(){
 
 //6. Bartenders name, status and status detail
 function showBartenders(){
-    console.log("bartenders", myObject.bartenders);
+    //console.log("bartenders", myObject.bartenders);
 
     let bartenders = myObject.bartenders;
 
@@ -105,7 +110,7 @@ function showBartenders(){
     let bartendersClone = bartendersTemplate.cloneNode(true);
     //getting the names of the bartenders
     bartendersClone.querySelector(".bartender_name").textContent = `Bartender\´s name: ${bartender.name}`;
-    //bartender´s status t work
+    //bartender´s status of work
     if (bartender.status == "WORKING"){
         bartendersClone.querySelector(".bartender_status").textContent = "WORKS!!!!!!";
         bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "green";
@@ -142,6 +147,33 @@ function showBartenders(){
     document.querySelector(".bartenders").appendChild(bartendersClone);
     })
     
+}
+
+//7. Beers name, fetures and description
+function showBeers(){
+    console.log("beers", myObject.beertypes)
+
+    let beers = myObject.beertypes;
+
+    beers.forEach(beer =>{
+        //define the beers template
+        let beersTemplate = document.querySelector(".beersTemplate").content;
+
+        //define the beers clone
+        let beersClone = beersTemplate.cloneNode(true);
+
+        //getting desired info about beers
+        beersClone.querySelector(".beer_name").textContent = `Beer\´s name: ${beer.name}`;
+        beersClone.querySelector(".beer_category").textContent = `Category: ${beer.category}`;
+        beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
+        beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc}`;
+        beersClone.querySelector(".beer_appearance").textContent = `Appearance: ${beer.description.appearance}`;
+        beersClone.querySelector(".beer_flavor").textContent = `Flavor: ${beer.description.flavor}`;
+        beersClone.querySelector(".beer_impression").textContent = `Impression: ${beer.description.overallImpression}`;
+
+        //append clone in the div
+        document.querySelector(".beer_types").appendChild(beersClone);
+    })
 }
 
 
