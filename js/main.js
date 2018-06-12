@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", loadScript);
 function loadScript(){
     let data = FooBar.getData();    
     myObject = JSON.parse(data);
-    console.log(myObject);
+ //   console.log(myObject);
     //console.log(myObject.queue);
 
     //1. getting a number of people waiting in queue
@@ -26,6 +26,16 @@ function loadScript(){
         if(customer.id>lastIdCounted){
             beersServed += customer.order.length;
             lastIdCounted = customer.id;
+
+            // add beers to total beersSold
+            // beersSold = {};
+            // customer.order = [];
+            // order.forEach(beer.name => {
+            //     let sold = beersSold[beername];
+
+            //     sold++;
+            //     beersSold[beername]=sold
+            // })
         }
     
     })
@@ -35,11 +45,10 @@ function loadScript(){
     
 
 //clean the container of capacity
-document.querySelector(".beer_taps").innerHTML="";
-//clean the container of bartenders
-document.querySelector(".bartenders").innerHTML="";
-//clean the container of beers
-document.querySelector(".beer_types").innerHTML="";
+//document.querySelector(".beer_taps").innerHTML="";
+
+
+
 
 //call functions
 showTaps();
@@ -52,6 +61,7 @@ showBeers();
 function showTaps(){
     //console.log("taps",myObject.taps)
 
+    document.querySelector(".beer_taps").innerHTML = "";
     let taps = myObject.taps;
 
     taps.forEach(tap =>{
@@ -67,18 +77,19 @@ function showTaps(){
         clone.querySelector(".capacity").style.transform = "rotate(-180deg)";
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
-      
-        //append clone in the div
-        document.querySelector(".beer_taps").appendChild(clone);
-
-        //notify when it is time to change keg 
+         //notify when it is time to change keg 
         if (tap.level<=2450){
             ///alert ("change tap");
-            document.querySelector(".level").style.backgroundColor = "blue";
+            clone.querySelector(".level").style.backgroundColor = "blue";
+            clone.querySelector(".level").textContent = "Soon change keg";
+            clone.querySelector(".level").style.transform = "rotate(180deg)";
 
-           //----->how to clean so ithers would get invited as well???
         } 
-        document.querySelector(".level").innerHTML="";
+        
+        //append clone in the div
+        document.querySelector(".beer_taps").appendChild(clone);
+        
+        // document.querySelector(".level").innerHTML="";
     }
 )
 
@@ -86,17 +97,33 @@ function showTaps(){
 //5. Showing when the storage is getting empty  ---> To finnish!!!
 function showStorage(){
     //console.log("storage", myObject.storage)
+    //clean the div 
+    document.querySelector(".storage").innerHTML = "";
 
     let storage = myObject.storage;
-    if (myObject.storage < 5){
-        alert ("need to buy more beer!")
+    storage.forEach(type => { 
+        console.log(type.name)
+        console.log(type.amount)
+        if (type.amount<=2){
+            //alert ("need to buy beer!")
+            document.querySelector(".storage").textContent = `${type.name} beer is finishing soon! Buy more!`;
+            document.querySelector(".storage").textContent = `${type.name} beer is finishing soon! Buy more!`;
+        }
     }
-}
+)}
+       
+    // let storage = myObject.storage;
+    // if (myObject.storage < 5){
+    //     alert ("need to buy more beer!")
+    // }
+   
 
 
 //6. Bartenders name, status and status detail
 function showBartenders(){
     //console.log("bartenders", myObject.bartenders);
+    //clean the container of bartenders
+    document.querySelector(".bartenders").innerHTML="";
 
     let bartenders = myObject.bartenders;
 
@@ -151,8 +178,10 @@ function showBartenders(){
 
 //7. Beers name, fetures and description
 function showBeers(){
-    console.log("beers", myObject.beertypes)
+ //   console.log("beers", myObject.beertypes)
 
+    //clean the container of beers
+    document.querySelector(".beer_types").innerHTML="";
     let beers = myObject.beertypes;
 
     beers.forEach(beer =>{
@@ -165,7 +194,7 @@ function showBeers(){
         //getting desired info about beers
         beersClone.querySelector(".beer_name").textContent = `Beer\´s name: ${beer.name}`;
         beersClone.querySelector(".beer_category").textContent = `Category: ${beer.category}`;
-        beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
+        //beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
         beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc}`;
         beersClone.querySelector(".beer_appearance").textContent = `Appearance: ${beer.description.appearance}`;
         beersClone.querySelector(".beer_flavor").textContent = `Flavor: ${beer.description.flavor}`;
