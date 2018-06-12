@@ -5,6 +5,7 @@ let lastIdCounted = 0;
 let beersServed = 0;
 //const tapsTemplate = document.querySelector("#tapsTemplate").content;
 
+
 window.addEventListener("DOMContentLoaded", loadScript);
 
 //getting the data from the script
@@ -95,16 +96,21 @@ function showTaps(){
 
 //5. Showing when the storage is getting empty  ---> To finnish!!!
 function showStorage(){
-    //console.log("storage", myObject.storage)
+    console.log("storage", myObject.storage)
 
     let storage = myObject.storage;
     storage.forEach(type => { 
+        myObject.taps.forEach(tap=>{
+            if (tap.beer === type.name){
+            if (type.amount<=2){
+                //alert ("need to buy beer!")
+                // document.querySelectorAll(".storage")[tap.id].textContent = `${type.name} is finishing soon! Buy more!`;
+                document.querySelectorAll(".storage")[tap.id].textContent = `This beer is finishing soon! Buy more!`;
+            }
+            }
+        })
         //console.log(type.name, type.amount)
-        if (type.amount<=2){
-            //alert ("need to buy beer!")
-            document.querySelector(".storage").textContent = `${type.name} beer is finishing soon! Buy more!`;
-            
-        }
+       
     }
 )}
 
@@ -168,7 +174,7 @@ function showBartenders(){
 
 //7. Beers name, fetures and description
 function showBeers(){
-   console.log("beers", myObject.beertypes)
+   //console.log("beers", myObject.beertypes)
 
     //clean the container of beers
     document.querySelector(".beer_types").innerHTML="";
@@ -181,18 +187,33 @@ function showBeers(){
         //define the beers clone
         let beersClone = beersTemplate.cloneNode(true);
 
-        //getting desired info about beers
+        // let button = document.getElementsByTagName('button');
+
+        // button.addEventListener("click", function(){
+        //     console.log(button)
+        // //     this.nextSibling.innerHTML.classList.toggle(".hide");
+        // });
+
+        // button.addEventListener("click", function(){
+        //     div.nextSibling.classList.toggle(".hide");
+        // });
+        //getting info about beers
         beersClone.querySelector(".beer_name").textContent = `Beer\´s name: ${beer.name}`;
         beersClone.querySelector(".beer_category").textContent = `Category: ${beer.category}`;
         //beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
-        beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc}`;
-        beersClone.querySelector(".beer_appearance").textContent = `Appearance: ${beer.description.appearance}`;
-        beersClone.querySelector(".beer_flavor").textContent = `Flavor: ${beer.description.flavor}`;
-        beersClone.querySelector(".beer_impression").textContent = `Impression: ${beer.description.overallImpression}`;
+        beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc} %`;
+        beersClone.querySelector(".beer_image").src = `images/${beer.label}`;
+
+        
+
+        beersClone.querySelector(".modal_appearance").textContent = `Appearance: ${beer.description.appearance}`;
+        beersClone.querySelector(".modal_flavor").textContent = `Flavor: ${beer.description.flavor}`;
+        beersClone.querySelector(".modal_impression").textContent = `Impression: ${beer.description.overallImpression}`;
 
         //append clone in the div
         document.querySelector(".beer_types").appendChild(beersClone);
     })
+   
 }
 
 
@@ -227,6 +248,7 @@ function showBeers(){
 setInterval(function () {
     loadScript();
 }, 3000);
+
 
 
 
