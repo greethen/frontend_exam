@@ -6,11 +6,19 @@ let beersServed = 0;
 //const tapsTemplate = document.querySelector("#tapsTemplate").content;
 
 
-window.addEventListener("DOMContentLoaded", loadScript);
+window.addEventListener("DOMContentLoaded", getAllData);
+
+
+function getAllData(){
+    getBeers();
+    loadScript();
+}
 
 //getting the data from the script
 function loadScript(){
-    let data = FooBar.getData();    
+    //gets all the data except the beertypes, which are static when getData(true)
+    // getData() - fetch all the data, getData(true) - all the data EXCEPT the beers
+    let data = FooBar.getData(true);    
     myObject = JSON.parse(data);
  //   console.log(myObject);
     //console.log(myObject.queue);
@@ -27,7 +35,8 @@ function loadScript(){
         if(customer.id>lastIdCounted){
             beersServed += customer.order.length;
             lastIdCounted = customer.id;
-
+            
+            //to find the most popular beer
             //add beers to total beersSold
             // let beersSold = {"Githop": 0,
             // "Elhete": 0, 
@@ -37,10 +46,10 @@ function loadScript(){
             // console.log(myObject.beertypes);
             // order.forEach(beer => {
                 
-            //     let sold = beersSold[myObject.beertypes];
+            //let sold = beersSold[myObject.beertypes];
                 
-            //     sold++;
-            //     beersSold[myObject.beertypes]=sold;
+            // sold++;
+            // beersSold[myObject.beertypes]=sold;
             // })
         }
     })
@@ -53,8 +62,24 @@ function loadScript(){
 showTaps();
 showStorage();
 showBartenders();
-showBeers();
+
 };
+
+function getBeers(){
+    let data = FooBar.getData();    
+    myObject = JSON.parse(data);
+    showBeers(myObject.beertypes);
+}
+
+
+//setting the interval so the date reloads in 10s !!!IMPORTANT to change the time to 10 s before handin
+setInterval(function () {
+    loadScript();
+}, 3000);
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     showBeers();
+// }, false);
 
 //4. getting the taps
 function showTaps(){
@@ -77,10 +102,10 @@ function showTaps(){
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
          //notify when it is time to change keg 
-        if (tap.level<=200){
+        if (tap.level<=500){
             ///alert ("change tap");
             clone.querySelector(".level").style.backgroundColor = "blue";
-            clone.querySelector(".level").textContent = "2 liters left. Soon change keg";
+            clone.querySelector(".capacity").textContent = "5 liters left. Soon change keg";
             clone.querySelector(".level").style.transform = "rotate(180deg)";
 
         } 
@@ -101,7 +126,9 @@ function showStorage(){
     let storage = myObject.storage;
     storage.forEach(type => { 
         myObject.taps.forEach(tap=>{
+            //need to make sure that tap.beer is equal and the same as type.name
             if (tap.beer === type.name){
+            //only when it is the same, can put a new condition
             if (type.amount<=2){
                 //alert ("need to buy beer!")
                 // document.querySelectorAll(".storage")[tap.id].textContent = `${type.name} is finishing soon! Buy more!`;
@@ -143,7 +170,7 @@ function showBartenders(){
         bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "orange";
     }
 
-    //bartender´s precise activity
+    //bartender´s precise activity --> surely, there is a better way to do it
     if(bartender.statusDetail == "pourBeer"){
         bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Pours Beer`;
     }
@@ -172,13 +199,13 @@ function showBartenders(){
     
 }
 
+
 //7. Beers name, fetures and description
-function showBeers(){
+function showBeers(beers){
    //console.log("beers", myObject.beertypes)
 
     //clean the container of beers
     document.querySelector(".beer_types").innerHTML="";
-    let beers = myObject.beertypes;
 
     beers.forEach(beer =>{
         //define the beers template
@@ -186,12 +213,22 @@ function showBeers(){
 
         //define the beers clone
         let beersClone = beersTemplate.cloneNode(true);
+        //define the button and the modal to show more data
+        let button = beersClone.querySelector('.read_more');
+        let modal = beersClone.querySelector(".modal");
+        // console.log(modal)
 
-        // let button = document.getElementsByTagName('button');
+        //add button to 
+        button.addEventListener("click", function(){
+            //console.log(`hello ${beer.name}`);
+            modal.classList.toggle("hide");
+            //console.log(beersClone);
+            //console.log(modal); 
+        })
 
         // button.addEventListener("click", function(){
         //     console.log(button)
-        // //     this.nextSibling.innerHTML.classList.toggle(".hide");
+        //     //firstChild.innerHTML.classList.toggle(".hide");
         // });
 
         // button.addEventListener("click", function(){
@@ -232,10 +269,6 @@ function showBeers(){
 //     }
 //     )}
 
-
-
-
-
   //clone.querySelector("h1").textContent = data.header;
   // myObject.taps.forEach(beerLevel=>{
   //     document.querySelector(".level").style.height = `${myObject.taps.level}0px`;
@@ -244,10 +277,7 @@ function showBeers(){
 
 
 
-//setting the interval so the date reloads in 10s !!!IMPORTANT to change the time to 10 s before handin
-setInterval(function () {
-    loadScript();
-}, 3000);
+
 
 
 

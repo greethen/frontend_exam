@@ -6,23 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FooBar Dashboard</title>
     <link rel="stylesheet" href="css/new.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700" rel="stylesheet">
 </head>
 <body>
 
     <h1>FooBar Dashboard</h1>
 
-    <!-- People WAITING in the queue -->
-    <h2>People waiting:</h2>
-    <div class="waiting"></div>
+ <!-- Basic statistic -->
+    <div id="basic_statistic_wrap">
+        <h2 class="basic_statistic_header">Basic Statistic</h2>
+        <!-- People WAITING in the queue -->
+        <div class="basic_clm">
+        <h2 class="basic_info">People waiting:</h2>
+        <div class="waiting"></div>
+        </div>
      
-    <!-- People SERVED now-->
-     <h2>People served now:</h2>
-     <div class="servedNow"></div>
+        <!-- People SERVED now-->
+        <div class="basic_clm">
+        <h2 class="basic_info">People served:</h2>
+        <div class="servedNow"></div>
+        </div>
     
-     <!-- People SERVED today (SUM)-->
-    <h2>Beers served today in total:</h2>
-    <div class="servedToday"></div>
-    
+        <!-- People SERVED today (SUM)-->
+        <div class="basic_clm">
+        <h2 class="basic_info">Beers sold today:</h2>
+        <div class="servedToday"></div>
+        </div>
+    </div>
+
+
+<!-- Bartenders working -->
+    <div id="bartenders_wrap">
+      <h2 class="bartenders_header">Bartenders</h2>
+      <div class="bartenders"></div>
+      <template class="bartendersTemplate">
+          <div class="bartender_name"></div>
+          <div class="bartender_status">status</div>
+          <div class="bartender_activity"></div>
+      </template>
+    </div>
+
+
     <!-- Beer taps -->
     <h2>Beer taps</h2>
     <div class="taps-wrap">
@@ -38,14 +62,7 @@
     
 </div>
 
-    <!-- Bartenders working -->
-    <h2>Bartenders</h2>
-    <div class="bartenders"></div>
-    <template class="bartendersTemplate">
-        <div class="bartender_name"></div>
-        <div class="bartender_status">status</div>
-        <div class="bartender_activity"></div>
-    </template>
+  
 
     <!-- Beer types -->
     <h2>Beer types</h2>
