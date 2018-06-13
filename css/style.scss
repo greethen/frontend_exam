@@ -10,7 +10,10 @@ $big_font_size: 100px;
     // box-sizing: border-box;
     margin: 0;
 }
-
+body{
+    padding-left: 1em;
+    padding-right: 1em;
+}
 h1 {
     font-family: $main_font;
     color: $main_color;
@@ -44,7 +47,7 @@ h1 {
 }
 /*basic statistic*/
 
-.basic_statistic_header, .bartenders_header {
+.header {
     font-family: $main_font;
     font-size: $text_font_size;
     color: white;
@@ -52,6 +55,9 @@ h1 {
     padding: $main_padding;
     font-weight: $medium_font_weight;
     text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
 }
 
 .info_wrap{
@@ -79,33 +85,70 @@ h1 {
     text-align: center;
 }
 
-.basic_clm{
-    margin: 10px;
-}
+
 
 /*Bartenders*/
 
-// // #bartenders_wrap{
-// //     display: grid;  
-// //     width: 50%;
-// //     float: right;
-// // }
+.bartenders_info_wrap{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+   
+}
+.bartenders{
+    grid-column: span 1;
+}
+
+.bartender_status{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    
+}
+.bartender_name{
+    font-family: $main_font;
+    color: $main_color;
+    font-size: $text_font_size;
+    font-weight: $medium_font_weight;
+    text-align: center;
+   
+}
+.bartender_activity{
+    @extend .bartender_name;
+    margin-top: 0;
+    
+}
+
+
+/*Taps*/
 
 
 /* The level of the taps*/
+.beer_taps{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    //grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1em;
+}
 
 .capacity {
+    grid-column: span 1;
     height: 250px;
     width: 100px;
-    background-color: red; //border: 1px solid black;
+    background-color: white; 
+    border: 2px solid $taps_color;
 }
 
 .level {
     height: 250px;
     width: 100px;
-    background-color: greenyellow;
+    background-color: $taps_color;
 }
-
+.beer_tap_name{
+    @extend .bartender_name;
+    text-transform: uppercase;
+    
+}
 // modal window
 .modal {
     display: block;

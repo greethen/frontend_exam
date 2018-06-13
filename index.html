@@ -19,7 +19,7 @@
 <div id="top_part">
  <!-- Basic statistic -->
     <div id="basic_statistic_wrap">
-        <h2 class="basic_statistic_header">Basic Statistic</h2>
+        <h2 class="header">Basic Statistic</h2>
         <!-- People WAITING in the queue -->
         <div class="info_wrap">
         <div class="basic_clm">
@@ -45,19 +45,25 @@
 <!-- Bartenders working -->
 
     <div id="bartenders_wrap">
-    <h2 class="bartenders_header">Bartenders</h2>
-      <div class="bartenders"></div>
+    <h2 class="header">Bartenders</h2>
+    
+    <div class="bartenders_info_wrap"> 
+    <div class="bartenders"></div>
       <template class="bartendersTemplate">
+
           <div class="bartender_name"></div>
-          <div class="bartender_status">status</div>
           <div class="bartender_activity"></div>
+          <div class="bartender_status"></div>
+          
       </template>
+    </div>
+    </div>
     </div>
     
 </div>
 
     <!-- Beer taps -->
-    <h2>Beer taps</h2>
+    <h2 class="header">Beer taps</h2>
     <div class="taps-wrap">
     <div class="beer_taps"></div>
     <template class="tapsTemplate">
@@ -65,7 +71,7 @@
             <div class="level"></div>
         </div>
         
-        <span class="beer_tap_name">Name</span>
+        <span class="beer_tap_name"></span>
         <div class="storage"></div>
     </template>
     
@@ -74,7 +80,7 @@
   
 
     <!-- Beer types -->
-    <h2>Beer types</h2>
+    <h2 class="header">Beer types</h2>
     <div class="beer_types"></div>
     <template class="beersTemplate">
         <div>

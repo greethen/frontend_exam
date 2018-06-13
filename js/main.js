@@ -75,7 +75,7 @@ function getBeers(){
 //setting the interval so the date reloads in 10s !!!IMPORTANT to change the time to 10 s before handin
 setInterval(function () {
     loadScript();
-}, 3000);
+}, 10000);
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     showBeers();
@@ -159,35 +159,35 @@ function showBartenders(){
     //define the bartenders clone 
     let bartendersClone = bartendersTemplate.cloneNode(true);
     //getting the names of the bartenders
-    bartendersClone.querySelector(".bartender_name").textContent = `Bartender\´s name: ${bartender.name}`;
+    bartendersClone.querySelector(".bartender_name").textContent = `Bartender: ${bartender.name}`;
     //bartender´s status of work
     if (bartender.status == "WORKING"){
-        bartendersClone.querySelector(".bartender_status").textContent = "WORKS!!!!!!";
-        bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "green";
+        bartendersClone.querySelector(".bartender_status").textContent = "WORKS";
+        bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "#00B818";
     }
     else{
-        bartendersClone.querySelector(".bartender_status").textContent = "IS GETTING READY!!!!!!";
-        bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "orange";
+        bartendersClone.querySelector(".bartender_status").textContent = "READY";
+        bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "#FFAF06";
     }
 
     //bartender´s precise activity --> surely, there is a better way to do it
     if(bartender.statusDetail == "pourBeer"){
-        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Pours Beer`;
+        bartendersClone.querySelector(".bartender_activity").textContent = `Pours Beer`;
     }
     else if (bartender.statusDetail == "startServing") {
-        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Starts Serving`;
+        bartendersClone.querySelector(".bartender_activity").textContent = `Starts Serving`;
     }
     else if (bartender.statusDetail == "receivePayment") {
-        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Receives Payment`;
+        bartendersClone.querySelector(".bartender_activity").textContent = `Receives Payment`;
     }
     else if (bartender.statusDetail == "releaseTap") {
-        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Releases Tap`;
+        bartendersClone.querySelector(".bartender_activity").textContent = `Releases Tap`;
     }
     else if (bartender.statusDetail == "reserveTap") {
-        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Reserves Tap`;
+        bartendersClone.querySelector(".bartender_activity").textContent = `Reserves Tap`;
     }
     else{
-        bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: Is waiting`;
+        bartendersClone.querySelector(".bartender_activity").textContent = `Is waiting`;
     }
     
     //bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: ${bartender.statusDetail}`;
