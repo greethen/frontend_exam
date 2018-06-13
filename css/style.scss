@@ -1,21 +1,118 @@
-body{
+$main_font: 'Josefin Sans',
+sans-serif;
+$main_color: #3FA9F5;
+$main_padding: 1em;
+$taps_color: #FFAF06;
+$text_font_size: 16px;
+$medium_font_weight: 300;
+$big_font_size: 100px;
+* {
+    // box-sizing: border-box;
     margin: 0;
 }
 
-// The level of the taps
-.capacity{
-    height: 250px;
-    width: 100px;
-    background-color: red;
-    //border: 1px solid black;
-    
+h1 {
+    font-family: $main_font;
+    color: $main_color;
+    text-align: center;
+    padding: 2em;
 }
 
-.level{
+// main{
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     grid-gap: 1em;
+//     background-color: pink;
+
+// }
+// .container{
+// grid-column: span 1;
+// background-color: #FFAF06;
+// height: 100px;
+// }
+
+/*top part*/
+#top_part{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+   
+}
+#basic_statistic_wrap, #bartenders_wrap{
+    grid-column: span 1;
+
+}
+/*basic statistic*/
+
+.basic_statistic_header, .bartenders_header {
+    font-family: $main_font;
+    font-size: $text_font_size;
+    color: white;
+    background-color: $main_color;
+    padding: $main_padding;
+    font-weight: $medium_font_weight;
+    text-align: center;
+}
+
+.info_wrap{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 1em;
+}
+
+.basic_info {
+    font-family: $main_font;
+    color: $main_color;
+    font-size: $text_font_size;
+    font-weight: $medium_font_weight;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.waiting,
+.servedNow,
+.servedToday {
+    font-size: $big_font_size;
+    font-family: $main_font;
+    color: $main_color;
+    text-align: center;
+}
+
+.basic_clm{
+    margin: 10px;
+}
+
+/*Bartenders*/
+
+// // #bartenders_wrap{
+// //     display: grid;  
+// //     width: 50%;
+// //     float: right;
+// // }
+
+
+/* The level of the taps*/
+
+.capacity {
+    height: 250px;
+    width: 100px;
+    background-color: red; //border: 1px solid black;
+}
+
+.level {
     height: 250px;
     width: 100px;
     background-color: greenyellow;
-  
+}
+
+// modal window
+.modal {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
 
 // .taps-wrap{
@@ -25,5 +122,4 @@ body{
 //     width: 800px;
 //     background-color: pink;
 //     display: inline-block;
-
 // }

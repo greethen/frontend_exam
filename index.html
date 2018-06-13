@@ -11,11 +11,17 @@
 <body>
 
     <h1>FooBar Dashboard</h1>
+<main>
+    <div class="container"></div>
+    <div class="container"></div>
+</main>
 
+<div id="top_part">
  <!-- Basic statistic -->
     <div id="basic_statistic_wrap">
         <h2 class="basic_statistic_header">Basic Statistic</h2>
         <!-- People WAITING in the queue -->
+        <div class="info_wrap">
         <div class="basic_clm">
         <h2 class="basic_info">People waiting:</h2>
         <div class="waiting"></div>
@@ -33,11 +39,13 @@
         <div class="servedToday"></div>
         </div>
     </div>
+    </div>
 
 
 <!-- Bartenders working -->
+
     <div id="bartenders_wrap">
-      <h2 class="bartenders_header">Bartenders</h2>
+    <h2 class="bartenders_header">Bartenders</h2>
       <div class="bartenders"></div>
       <template class="bartendersTemplate">
           <div class="bartender_name"></div>
@@ -45,7 +53,8 @@
           <div class="bartender_activity"></div>
       </template>
     </div>
-
+    
+</div>
 
     <!-- Beer taps -->
     <h2>Beer taps</h2>
@@ -60,7 +69,7 @@
         <div class="storage"></div>
     </template>
     
-</div>
+    </div>
 
   
 
