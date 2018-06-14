@@ -81,7 +81,8 @@ h1 {
   font-weight: 300;
   text-align: center;
   text-transform: uppercase;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  font-weight: 400; }
 
 .bartender_activity, .beer_tap_name, .storage, footer {
   font-family: "Josefin Sans", sans-serif;
@@ -207,7 +208,8 @@ h1 {
 .beer_image {
   height: auto;
   width: 40%;
-  float: right; }
+  float: right;
+  margin: 5px; }
 
 .modal {
   display: block; }
