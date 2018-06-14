@@ -83,7 +83,7 @@ h1 {
   text-transform: uppercase;
   padding-bottom: 10px; }
 
-.bartender_activity, .beer_tap_name, .storage, .change_keg, footer {
+.bartender_activity, .beer_tap_name, .storage, footer {
   font-family: "Josefin Sans", sans-serif;
   color: #3FA9F5;
   font-size: 20px;
@@ -127,7 +127,7 @@ h1 {
   text-transform: uppercase;
   height: 50px; }
 
-.storage, .change_keg {
+.storage {
   font-size: 18px;
   color: #FF1D25;
   font-weight: 300;
@@ -136,8 +136,16 @@ h1 {
   height: 30px; }
 
 .change_keg {
+  font-size: 18px;
+  color: #FF1D25;
+  font-weight: 300;
+  text-transform: uppercase;
   margin-bottom: 10px;
-  height: 25px; }
+  height: 25px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 1em; }
 
 @keyframes blinker {
   from {
@@ -145,7 +153,7 @@ h1 {
   to {
     opacity: 0.0; } }
 
-.storage, .change_keg {
+.storage {
   text-decoration: blink;
   animation-name: blinker;
   animation-duration: 0.9s;

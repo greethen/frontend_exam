@@ -187,9 +187,17 @@ h1 {
     
 }
 .change_keg{
-    @extend .storage;
+
+    font-size: $text_font_size;
+    color: $alert_color;
+    font-weight: 300;
+    text-transform: uppercase;
     margin-bottom: 10px;
     height: 25px;
+    font-family: $main_font;
+    font-weight: $medium_font_weight;
+    text-align: center;
+    margin-top: 1em;
     
 }
 
