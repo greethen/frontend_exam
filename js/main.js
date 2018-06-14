@@ -71,7 +71,7 @@ function getBeers(){
     showBeers(myObject.beertypes);
 }
 
-
+//loadScript();
 //setting the interval so the date reloads in 10s !!!IMPORTANT to change the time to 10 s before handin
 setInterval(function () {
     loadScript();
@@ -102,10 +102,11 @@ function showTaps(){
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
          //notify when it is time to change keg 
-        if (tap.level<=500){
+        if (tap.level<=2450){
             ///alert ("change tap");
-            clone.querySelector(".level").style.backgroundColor = "blue";
-            clone.querySelector(".capacity").textContent = "5 liters left. Soon change keg";
+            clone.querySelector(".level").style.backgroundColor = "#FF1D25";
+            clone.querySelector(".level").textContent = "Change keg!";
+            //clone.querySelector(".capacity").style.border = "#FF1D25";
             clone.querySelector(".level").style.transform = "rotate(180deg)";
 
         } 
@@ -132,7 +133,7 @@ function showStorage(){
             if (type.amount<=2){
                 //alert ("need to buy beer!")
                 // document.querySelectorAll(".storage")[tap.id].textContent = `${type.name} is finishing soon! Buy more!`;
-                document.querySelectorAll(".storage")[tap.id].textContent = `This beer is finishing soon! Buy more!`;
+                document.querySelectorAll(".storage")[tap.id].textContent = `Buy more!`;
             }
             }
         })
@@ -159,14 +160,14 @@ function showBartenders(){
     //define the bartenders clone 
     let bartendersClone = bartendersTemplate.cloneNode(true);
     //getting the names of the bartenders
-    bartendersClone.querySelector(".bartender_name").textContent = `Bartender: ${bartender.name}`;
+    bartendersClone.querySelector(".bartender_name").textContent = `${bartender.name}`;
     //bartender´s status of work
     if (bartender.status == "WORKING"){
-        bartendersClone.querySelector(".bartender_status").textContent = "WORKS";
+        //bartendersClone.querySelector(".bartender_status").textContent = "WORKS";
         bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "#00B818";
     }
     else{
-        bartendersClone.querySelector(".bartender_status").textContent = "READY";
+        //bartendersClone.querySelector(".bartender_status").textContent = "READY";
         bartendersClone.querySelector(".bartender_status").style.backgroundColor  = "#FFAF06";
     }
 
@@ -235,14 +236,14 @@ function showBeers(beers){
         //     div.nextSibling.classList.toggle(".hide");
         // });
         //getting info about beers
-        beersClone.querySelector(".beer_name").textContent = `Beer\´s name: ${beer.name}`;
+        beersClone.querySelector(".beer_name").textContent = `${beer.name}`;
         beersClone.querySelector(".beer_category").textContent = `Category: ${beer.category}`;
         //beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
         beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc} %`;
         beersClone.querySelector(".beer_image").src = `images/${beer.label}`;
 
         
-
+        beersClone.querySelector(".modal_name").textContent = `${beer.name}`;
         beersClone.querySelector(".modal_appearance").textContent = `Appearance: ${beer.description.appearance}`;
         beersClone.querySelector(".modal_flavor").textContent = `Flavor: ${beer.description.flavor}`;
         beersClone.querySelector(".modal_impression").textContent = `Impression: ${beer.description.overallImpression}`;

@@ -46,36 +46,40 @@
 
     <div id="bartenders_wrap">
     <h2 class="header">Bartenders</h2>
-    
-    <div class="bartenders_info_wrap"> 
-    <div class="bartenders"></div>
-      <template class="bartendersTemplate">
 
+    <div class="bartenders"></div>
+    <template class="bartendersTemplate">
+
+    <div class="bartenders_info_wrap"> 
           <div class="bartender_name"></div>
-          <div class="bartender_activity"></div>
           <div class="bartender_status"></div>
+          <div class="bartender_activity"></div>
           
+    </div>
+
       </template>
     </div>
-    </div>
-    </div>
+    
+</div>
     
 </div>
 
     <!-- Beer taps -->
     <h2 class="header">Beer taps</h2>
-    <div class="taps-wrap">
+    
     <div class="beer_taps"></div>
     <template class="tapsTemplate">
+
+    <div class="taps-wrap">
         <div class="capacity">
             <div class="level"></div>
         </div>
-        
-        <span class="beer_tap_name"></span>
+        <div class="beer_tap_name"></div>
         <div class="storage"></div>
+    </div>
+
     </template>
     
-    </div>
 
   
 
@@ -83,7 +87,8 @@
     <h2 class="header">Beer types</h2>
     <div class="beer_types"></div>
     <template class="beersTemplate">
-        <div>
+
+        <div id="one_beer_type">
         <div class="beer_name"></div>
         <div class="beer_category"></div>
         <!-- <div class="beer_popularity"></div> -->
@@ -93,13 +98,14 @@
         
         <div class="modal hide">
             <article class="modal_content">
-                <!-- <h3 class="modal_name">beer-name</h3> -->
+                <h3 class="modal_name">beer-name</h3>
                 <p class="modal_appearance">beer-appearance</p>
                 <p class="modal_flavor">beer-flavor</p>
                 <p class="modal_impression">beer-impression</p>
             </article>
         </div>
     </div>
+    
     </template>
         <!-- <div class="beer_appearance"></div>
         <div class="beer_flavor"></div>

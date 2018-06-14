@@ -3,16 +3,19 @@ sans-serif;
 $main_color: #3FA9F5;
 $main_padding: 1em;
 $taps_color: #FFAF06;
+$yellow: #FFDB08;
 $text_font_size: 16px;
 $medium_font_weight: 300;
 $big_font_size: 100px;
+$alert_color: #FF1D25;
+
 * {
     // box-sizing: border-box;
     margin: 0;
 }
 body{
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 h1 {
     font-family: $main_font;
@@ -38,11 +41,12 @@ h1 {
 #top_part{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1em;
+    grid-gap: 2em;
    
 }
 #basic_statistic_wrap, #bartenders_wrap{
     grid-column: span 1;
+    margin-bottom: 3em;
 
 }
 /*basic statistic*/
@@ -56,7 +60,7 @@ h1 {
     font-weight: $medium_font_weight;
     text-align: center;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
     text-transform: uppercase;
 }
 
@@ -89,33 +93,39 @@ h1 {
 
 /*Bartenders*/
 
-.bartenders_info_wrap{
+.bartenders{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-   
 }
-.bartenders{
-    grid-column: span 1;
+.bartenders_info_wrap{
+    display: grid;
 }
 
 .bartender_status{
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
+    margin: auto;
     
 }
 .bartender_name{
     font-family: $main_font;
     color: $main_color;
-    font-size: $text_font_size;
+    font-size: 30px;
     font-weight: $medium_font_weight;
     text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
    
 }
 .bartender_activity{
-    @extend .bartender_name;
-    margin-top: 0;
+    font-family: $main_font;
+    color: $main_color;
+    font-size: $text_font_size;
+    font-weight: $medium_font_weight;
+    text-align: center;
+    margin-top: 1em;
     
 }
 
@@ -123,32 +133,110 @@ h1 {
 /*Taps*/
 
 
-/* The level of the taps*/
+//The level of the taps
 .beer_taps{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    //grid-template-rows: repeat(3, 1fr);
     grid-gap: 1em;
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+.taps-wrap{
+    display: grid;
+    //height: 400px;
 }
 
 .capacity {
     grid-column: span 1;
     height: 250px;
-    width: 100px;
+    width: 110px;
     background-color: white; 
-    border: 2px solid $taps_color;
+    border: 2px solid $yellow;
+    transition: all 1s ease-in;
+    margin: auto;
 }
 
 .level {
     height: 250px;
-    width: 100px;
-    background-color: $taps_color;
-}
-.beer_tap_name{
-    @extend .bartender_name;
+    width: 110px;
+    background-color: $yellow;
+    font-family: $main_font;
+    color: white;
+    font-weight: 100;
+    font-size: 20px;
     text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
     
 }
+.beer_tap_name{
+    @extend .bartender_activity;
+    text-transform: uppercase;
+    height: 50px;
+}
+
+.storage{
+    @extend .bartender_activity;
+    font-size: $text_font_size;
+    color: $alert_color;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+/* BEER TYPES */
+.beer_types{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+
+}
+#one_beer_type{
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+}
+
+
+
+//Button
+.read_more{
+    height: 50px;
+    width: 100px;
+    background-color: $main_color;
+    font-family: $main_font;
+    font-size: $text_font_size;
+    color: white;
+    font-weight: 100;
+    // &:hover {
+    //     cursor: pointer;
+    //     //box-shadow: 6px 6px 1px rgba(0, 0, 0, 0.05);
+    //     font-size: 18px;
+    //     height: 55px;
+    //     width: 110px;
+    // }
+
+}
+.beer_name,.beer_category, .beer_alc{
+    font-family: $main_font;
+    font-size: $text_font_size;
+    color: $main_color;
+    font-weight: 300;
+    line-height:  28px;
+}
+.beer_name{
+    text-transform: uppercase;
+    font-size: 30px;
+}
+#one_beer_type{
+    margin: 2em;
+}
+
+//Image 
+.beer_image {
+    height: 10%;
+    width: 10%;
+}
+
 // modal window
 .modal {
     display: block;

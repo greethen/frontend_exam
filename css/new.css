@@ -2,8 +2,8 @@
   margin: 0; }
 
 body {
-  padding-left: 1em;
-  padding-right: 1em; }
+  padding-left: 2em;
+  padding-right: 2em; }
 
 h1 {
   font-family: "Josefin Sans", sans-serif;
@@ -15,10 +15,11 @@ h1 {
 #top_part {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1em; }
+  grid-gap: 2em; }
 
 #basic_statistic_wrap, #bartenders_wrap {
-  grid-column: span 1; }
+  grid-column: span 1;
+  margin-bottom: 3em; }
 
 /*basic statistic*/
 .header {
@@ -30,7 +31,7 @@ h1 {
   font-weight: 300;
   text-align: center;
   margin-top: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
   text-transform: uppercase; }
 
 .info_wrap {
@@ -56,50 +57,116 @@ h1 {
   text-align: center; }
 
 /*Bartenders*/
-.bartenders_info_wrap {
+.bartenders {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px; }
 
-.bartenders {
-  grid-column: span 1; }
+.bartenders_info_wrap {
+  display: grid; }
 
 .bartender_status {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%; }
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin: auto; }
 
-.bartender_name, .bartender_activity, .beer_tap_name {
+.bartender_name {
+  font-family: "Josefin Sans", sans-serif;
+  color: #3FA9F5;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 10px; }
+
+.bartender_activity, .beer_tap_name, .storage {
   font-family: "Josefin Sans", sans-serif;
   color: #3FA9F5;
   font-size: 16px;
   font-weight: 300;
-  text-align: center; }
-
-.bartender_activity {
-  margin-top: 0; }
+  text-align: center;
+  margin-top: 1em; }
 
 /*Taps*/
-/* The level of the taps*/
 .beer_taps {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-gap: 1em; }
+  grid-gap: 1em;
+  padding-top: 3em;
+  padding-bottom: 2em; }
+
+.taps-wrap {
+  display: grid; }
 
 .capacity {
   grid-column: span 1;
   height: 250px;
-  width: 100px;
+  width: 110px;
   background-color: white;
-  border: 2px solid #FFAF06; }
+  border: 2px solid #FFDB08;
+  transition: all 1s ease-in;
+  margin: auto; }
 
 .level {
   height: 250px;
-  width: 100px;
-  background-color: #FFAF06; }
+  width: 110px;
+  background-color: #FFDB08;
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  font-weight: 100;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: flex-end; }
 
 .beer_tap_name {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  height: 50px; }
+
+.storage {
+  font-size: 16px;
+  color: #FF1D25;
+  font-weight: 400;
+  margin-top: 0; }
+
+/* BEER TYPES */
+.beer_types {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr); }
+
+#one_beer_type {
+  grid-template-columns: repeat(2, 1fr);
+  display: grid; }
+
+.read_more {
+  height: 50px;
+  width: 100px;
+  background-color: #3FA9F5;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  color: white;
+  font-weight: 100; }
+
+.beer_name, .beer_category, .beer_alc {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  color: #3FA9F5;
+  font-weight: 300;
+  line-height: 28px; }
+
+.beer_name {
+  text-transform: uppercase;
+  font-size: 30px; }
+
+#one_beer_type {
+  margin: 2em; }
+
+.beer_image {
+  height: 10%;
+  width: 10%; }
 
 .modal {
   display: block; }
