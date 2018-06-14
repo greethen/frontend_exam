@@ -102,7 +102,7 @@ function showTaps(){
         //getting the name of the beer tap
         clone.querySelector(".beer_tap_name").textContent = tap.beer;
          //notify when it is time to change keg 
-        if (tap.level<=2450){
+        if (tap.level<=500){
             ///alert ("change tap");
             clone.querySelector(".level").style.backgroundColor = "#FF1D25";
             clone.querySelector(".level").textContent = "Change keg!";
@@ -133,7 +133,7 @@ function showStorage(){
             if (type.amount<=2){
                 //alert ("need to buy beer!")
                 // document.querySelectorAll(".storage")[tap.id].textContent = `${type.name} is finishing soon! Buy more!`;
-                document.querySelectorAll(".storage")[tap.id].textContent = `Buy more!`;
+                document.querySelectorAll(".storage")[tap.id].textContent = `Storage low!`;
             }
             }
         })
@@ -243,10 +243,10 @@ function showBeers(beers){
         beersClone.querySelector(".beer_image").src = `images/${beer.label}`;
 
         
-        beersClone.querySelector(".modal_name").textContent = `${beer.name}`;
-        beersClone.querySelector(".modal_appearance").textContent = `Appearance: ${beer.description.appearance}`;
-        beersClone.querySelector(".modal_flavor").textContent = `Flavor: ${beer.description.flavor}`;
-        beersClone.querySelector(".modal_impression").textContent = `Impression: ${beer.description.overallImpression}`;
+        //beersClone.querySelector(".modal_name").textContent = `${beer.name}`;
+        beersClone.querySelector(".modal_appearance").textContent = `APPEARANCE: ${beer.description.appearance}`;
+        beersClone.querySelector(".modal_flavor").textContent = `FLAVOR: ${beer.description.flavor}`;
+        beersClone.querySelector(".modal_impression").textContent = `IMPRESSION: ${beer.description.overallImpression}`;
 
         //append clone in the div
         document.querySelector(".beer_types").appendChild(beersClone);
