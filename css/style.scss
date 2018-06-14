@@ -10,9 +10,9 @@ $big_font_size: 100px;
 $alert_color: #FF1D25;
 
 * {
-    // box-sizing: border-box;
     margin: 0;
 }
+
 body{
     padding-left: 8em;
     padding-right: 8em;
@@ -40,7 +40,8 @@ h1 {
 // height: 100px;
 // }
 
-/*top part*/
+/*TOP PART*/
+
 #top_part{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -53,7 +54,7 @@ h1 {
 
 }
 
-/*Basic statistic*/
+/*BASIC STATISTICS*/
 
 .header {
     font-family: $main_font;
@@ -93,7 +94,7 @@ h1 {
     text-align: center;
 }
 
-/*Bartenders*/
+/*BARTENDERS*/
 
 .bartenders{
     display: grid;
@@ -132,7 +133,7 @@ h1 {
 }
 
 
-/*Taps*/
+/*TAPS*/
 
 //The level of the taps
 .beer_taps{
@@ -144,7 +145,6 @@ h1 {
 }
 .taps-wrap{
     display: grid;
-    //height: 400px;
 }
 
 .capacity {
@@ -152,7 +152,6 @@ h1 {
     height: 250px;
     width: 110px;
     background-color: white; 
-    //border: 1px solid $main_color;
     transition: all 1s ease-in;
     margin: auto;
 }
@@ -193,19 +192,19 @@ h1 {
     height: 25px;
     
 }
-//Taken from https://codepen.io/anasandoval90/pen/jPXxaR
 
-@-webkit-keyframes blinker {
+//Taken from https://codepen.io/anasandoval90/pen/jPXxaR
+@keyframes blinker {
     from {opacity: 1.0;}
     to {opacity: 0.0;}
   }
   .storage{
       text-decoration: blink;
-      -webkit-animation-name: blinker;
-      -webkit-animation-duration: 0.9s;
-      -webkit-animation-iteration-count:infinite;
-      -webkit-animation-timing-function:ease-in-out;
-      -webkit-animation-direction: alternate;
+      animation-name: blinker;
+      animation-duration: 0.9s;
+      animation-iteration-count:infinite;
+      animation-timing-function:ease-in-out;
+      animation-direction: alternate;
   }
 
 
@@ -215,18 +214,13 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2em;
-    
-    // grid-template-rows: repeat(5, 1fr);
-
 }
+
 #one_beer_type{
-    // grid-template-columns: repeat(2, 1fr);
-    // display: grid;
     border: 1px solid $main_color;
     padding: 2em;
     position: relative;
 }
-
 
 .beer_name, .beer_category, .beer_alc{
     font-family: $main_font;
@@ -264,14 +258,9 @@ h1 {
     &:hover {
         cursor: pointer;
         //box-shadow: 6px 6px 1px rgba(0, 0, 0, 0.05);
-        //font-size: 18px;
-        // height: 55px;
-        // width: 110px;
         background-color: $yellow;
         color: $main_color;
     }
-    
-
 }
 
 //Image 

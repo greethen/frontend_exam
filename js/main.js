@@ -3,8 +3,6 @@
 let myObject;
 let lastIdCounted = 0;
 let beersServed = 0;
-//const tapsTemplate = document.querySelector("#tapsTemplate").content;
-
 
 window.addEventListener("DOMContentLoaded", getAllData);
 
@@ -20,7 +18,7 @@ function loadScript(){
     // getData() - fetch all the data, getData(true) - all the data EXCEPT the beers
     let data = FooBar.getData(true);    
     myObject = JSON.parse(data);
- //   console.log(myObject);
+    //console.log(myObject);
     //console.log(myObject.queue);
 
     //1. getting a number of people waiting in queue
@@ -35,28 +33,10 @@ function loadScript(){
         if(customer.id>lastIdCounted){
             beersServed += customer.order.length;
             lastIdCounted = customer.id;
-            
-            //to find the most popular beer
-            //add beers to total beersSold
-            // let beersSold = {"Githop": 0,
-            // "Elhete": 0, 
-            // "Row26": 0,
-            // "Sleighride": 0}
-            // let order = myObject.serving;
-            // console.log(myObject.beertypes);
-            // order.forEach(beer => {
-                
-            //let sold = beersSold[myObject.beertypes];
-                
-            // sold++;
-            // beersSold[myObject.beertypes]=sold;
-            // })
         }
     })
     document.querySelector(".servedToday").textContent = `${beersServed}`;
 
-//clean the container of capacity
-//document.querySelector(".beer_taps").innerHTML="";
 
 //call functions
 showTaps();
@@ -77,9 +57,6 @@ setInterval(function () {
     loadScript();
 }, 10000);
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     showBeers();
-// }, false);
 
 //4. getting the taps
 function showTaps(){
@@ -89,7 +66,8 @@ function showTaps(){
     let taps = myObject.taps;
 
     taps.forEach(tap =>{
-        //console.log("tap", tap.level)
+    //console.log("tap", tap.level)
+
     //define the template
     let tapsTemplate = document.querySelector(".tapsTemplate").content;
   
@@ -118,13 +96,9 @@ function showTaps(){
             clone.querySelector(".capacity").style.border = "1px solid #FFDB08";
         }
         
-    
-        
-        
         //append clone in the div
         document.querySelector(".beer_taps").appendChild(clone);
-        
-        // document.querySelector(".level").innerHTML="";
+    
     }
 )
 
@@ -156,13 +130,14 @@ function showStorage(){
 //6. Bartenders name, status and status detail
 function showBartenders(){
     //console.log("bartenders", myObject.bartenders);
+
     //clean the container of bartenders
     document.querySelector(".bartenders").innerHTML="";
 
     let bartenders = myObject.bartenders;
 
     bartenders.forEach(bartender =>{
-        //console.log("bartender", bartender.name);
+    //console.log("bartender", bartender.name);
 
     //define the bartenders template
     let bartendersTemplate = document.querySelector(".bartendersTemplate").content;
@@ -200,10 +175,7 @@ function showBartenders(){
     else{
         bartendersClone.querySelector(".bartender_activity").textContent = `Is waiting`;
     }
-    
-    //bartendersClone.querySelector(".bartender_activity").textContent = `Currently bartender: ${bartender.statusDetail}`;
-    //${bartender.statusDetail.split(0.5, " ")}`;
-
+   
     //append clone in the div .bartenders
     document.querySelector(".bartenders").appendChild(bartendersClone);
     })
@@ -237,23 +209,13 @@ function showBeers(beers){
             //console.log(modal); 
         })
 
-        // button.addEventListener("click", function(){
-        //     console.log(button)
-        //     //firstChild.innerHTML.classList.toggle(".hide");
-        // });
-
-        // button.addEventListener("click", function(){
-        //     div.nextSibling.classList.toggle(".hide");
-        // });
         //getting info about beers
         beersClone.querySelector(".beer_name").textContent = `${beer.name}`;
         beersClone.querySelector(".beer_category").textContent = `${beer.category}`;
-        //beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
         beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc} %`;
         beersClone.querySelector(".beer_image").src = `images/${beer.label}`;
 
-        
-        //beersClone.querySelector(".modal_name").textContent = `${beer.name}`;
+        //beer info in modal part
         beersClone.querySelector(".modal_appearance").textContent = `APPEARANCE: ${beer.description.appearance}`;
         beersClone.querySelector(".modal_flavor").textContent = `FLAVOR: ${beer.description.flavor}`;
         beersClone.querySelector(".modal_impression").textContent = `IMPRESSION: ${beer.description.overallImpression}`;
@@ -264,26 +226,6 @@ function showBeers(beers){
    
 }
 
-
-// function showTaps(tap){
-//     taps.forEach(tap=>{
-  
-//         let tapsTemplate = document.querySelector(".tapsTemplate").content;
-//         let beerTaps = document.querySelector(".beer_taps");
-//         console.log(beerTaps);
-        
-      
-//         const clone = tapsTemplate.cloneNode(true);
-      
-//         clone.querySelector(".beer_taps_name").textContent = `${myObject.taps.beer}`;
-//         beerTaps.appendchild(true);
-//     }
-//     )}
-
-  //clone.querySelector("h1").textContent = data.header;
-  // myObject.taps.forEach(beerLevel=>{
-  //     document.querySelector(".level").style.height = `${myObject.taps.level}0px`;
-  // })
 
 
 

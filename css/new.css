@@ -14,7 +14,7 @@ h1 {
   padding: 2em 1em 1em 1em;
   text-transform: uppercase; }
 
-/*top part*/
+/*TOP PART*/
 #top_part {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -24,7 +24,7 @@ h1 {
   grid-column: span 1;
   margin-bottom: 3em; }
 
-/*Basic statistic*/
+/*BASIC STATISTICS*/
 .header {
   font-family: "Josefin Sans", sans-serif;
   font-size: 23px;
@@ -59,7 +59,7 @@ h1 {
   color: #3FA9F5;
   text-align: center; }
 
-/*Bartenders*/
+/*BARTENDERS*/
 .bartenders {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -91,7 +91,7 @@ h1 {
   text-align: center;
   margin-top: 1em; }
 
-/*Taps*/
+/*TAPS*/
 .beer_taps {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -139,7 +139,7 @@ h1 {
   margin-bottom: 10px;
   height: 25px; }
 
-@-webkit-keyframes blinker {
+@keyframes blinker {
   from {
     opacity: 1.0; }
   to {
@@ -147,11 +147,11 @@ h1 {
 
 .storage, .change_keg {
   text-decoration: blink;
-  -webkit-animation-name: blinker;
-  -webkit-animation-duration: 0.9s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-direction: alternate; }
+  animation-name: blinker;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate; }
 
 /* BEER TYPES */
 .beer_types {
