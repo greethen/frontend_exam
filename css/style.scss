@@ -4,7 +4,7 @@ $main_color: #3FA9F5;
 $main_padding: 1em;
 $taps_color: #FFAF06;
 $yellow: #FFDB08;
-$text_font_size: 16px;
+$text_font_size: 18px;
 $medium_font_weight: 300;
 $big_font_size: 100px;
 $alert_color: #FF1D25;
@@ -57,7 +57,7 @@ h1 {
 
 .header {
     font-family: $main_font;
-    font-size: $text_font_size;
+    font-size: $text_font_size +5px;
     color: white;
     background-color: $main_color;
     padding: $main_padding;
@@ -78,7 +78,7 @@ h1 {
 .basic_info {
     font-family: $main_font;
     color: $main_color;
-    font-size: $text_font_size;
+    font-size: $text_font_size +2px;
     font-weight: $medium_font_weight;
     text-align: center;
     margin-bottom: 1em;
@@ -124,7 +124,7 @@ h1 {
 .bartender_activity{
     font-family: $main_font;
     color: $main_color;
-    font-size: $text_font_size;
+    font-size: $text_font_size +2px;
     font-weight: $medium_font_weight;
     text-align: center;
     margin-top: 1em;
@@ -152,7 +152,7 @@ h1 {
     height: 250px;
     width: 110px;
     background-color: white; 
-    border: 2px solid $yellow;
+    //border: 1px solid $main_color;
     transition: all 1s ease-in;
     margin: auto;
 }
@@ -183,8 +183,30 @@ h1 {
     color: $alert_color;
     font-weight: 300;
     text-transform: uppercase;
-    margin-top: 0;
+    margin-top: 15px;
+    height: 30px;
+    
 }
+.change_keg{
+    @extend .storage;
+    margin-bottom: 10px;
+    height: 25px;
+    
+}
+//Taken from https://codepen.io/anasandoval90/pen/jPXxaR
+
+@-webkit-keyframes blinker {
+    from {opacity: 1.0;}
+    to {opacity: 0.0;}
+  }
+  .storage{
+      text-decoration: blink;
+      -webkit-animation-name: blinker;
+      -webkit-animation-duration: 0.9s;
+      -webkit-animation-iteration-count:infinite;
+      -webkit-animation-timing-function:ease-in-out;
+      -webkit-animation-direction: alternate;
+  }
 
 
 /* BEER TYPES */

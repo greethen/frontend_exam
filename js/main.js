@@ -105,11 +105,21 @@ function showTaps(){
         if (tap.level<=500){
             ///alert ("change tap");
             clone.querySelector(".level").style.backgroundColor = "#FF1D25";
-            clone.querySelector(".level").textContent = "Change keg!";
-            //clone.querySelector(".capacity").style.border = "#FF1D25";
+            clone.querySelector(".capacity").style.border = "1px solid #FF1D25";
+            clone.querySelector(".change_keg").textContent = "Change keg!";
             clone.querySelector(".level").style.transform = "rotate(180deg)";
-
+          //clone.querySelector(".beer_tap_name").style.color = "#FF1D25";
         } 
+        else if (tap.level>1500){
+            clone.querySelector(".level").style.backgroundColor = "#00B818";
+            clone.querySelector(".capacity").style.border = "1px solid #00B818";
+        } else {
+            clone.querySelector(".level").style.backgroundColor = "#FFDB08";
+            clone.querySelector(".capacity").style.border = "1px solid #FFDB08";
+        }
+        
+    
+        
         
         //append clone in the div
         document.querySelector(".beer_taps").appendChild(clone);
@@ -237,7 +247,7 @@ function showBeers(beers){
         // });
         //getting info about beers
         beersClone.querySelector(".beer_name").textContent = `${beer.name}`;
-        beersClone.querySelector(".beer_category").textContent = `Category: ${beer.category}`;
+        beersClone.querySelector(".beer_category").textContent = `${beer.category}`;
         //beersClone.querySelector(".beer_popularity").textContent = `Popularity rating: ${beer.popularity}`;
         beersClone.querySelector(".beer_alc").textContent = `Alcohol: ${beer.alc} %`;
         beersClone.querySelector(".beer_image").src = `images/${beer.label}`;

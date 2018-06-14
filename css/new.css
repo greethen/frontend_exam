@@ -27,7 +27,7 @@ h1 {
 /*Basic statistic*/
 .header {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 16px;
+  font-size: 23px;
   color: white;
   background-color: #3FA9F5;
   padding: 1em;
@@ -46,7 +46,7 @@ h1 {
 .basic_info {
   font-family: "Josefin Sans", sans-serif;
   color: #3FA9F5;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   text-align: center;
   margin-bottom: 1em; }
@@ -83,10 +83,10 @@ h1 {
   text-transform: uppercase;
   padding-bottom: 10px; }
 
-.bartender_activity, .beer_tap_name, .storage, footer {
+.bartender_activity, .beer_tap_name, .storage, .change_keg, footer {
   font-family: "Josefin Sans", sans-serif;
   color: #3FA9F5;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   text-align: center;
   margin-top: 1em; }
@@ -107,7 +107,6 @@ h1 {
   height: 250px;
   width: 110px;
   background-color: white;
-  border: 2px solid #FFDB08;
   transition: all 1s ease-in;
   margin: auto; }
 
@@ -128,12 +127,31 @@ h1 {
   text-transform: uppercase;
   height: 50px; }
 
-.storage {
-  font-size: 16px;
+.storage, .change_keg {
+  font-size: 18px;
   color: #FF1D25;
   font-weight: 300;
   text-transform: uppercase;
-  margin-top: 0; }
+  margin-top: 15px;
+  height: 30px; }
+
+.change_keg {
+  margin-bottom: 10px;
+  height: 25px; }
+
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1.0; }
+  to {
+    opacity: 0.0; } }
+
+.storage, .change_keg {
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.9s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate; }
 
 /* BEER TYPES */
 .beer_types {
@@ -148,14 +166,14 @@ h1 {
 
 .beer_name, .beer_category, .modal_appearance, .modal_flavor, .modal_impression, .beer_alc {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   color: #3FA9F5;
   font-weight: 300;
   line-height: 30px; }
 
 .beer_alc {
   color: #FF1D25;
-  font-size: 20px;
+  font-size: 22px;
   padding-bottom: 2em; }
 
 .beer_name {
@@ -168,7 +186,7 @@ h1 {
   width: 100px;
   background-color: #3FA9F5;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   color: white;
   font-weight: 100;
   bottom: 30px;
